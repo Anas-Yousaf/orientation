@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Web Development - Your Gateway to Success</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            max-width: 1200px;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #FFD700;
+        }
+
+        p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-card h3 {
+            color: #FFD700;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .stat-card p {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .career-path {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .path-item {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .salary-showcase {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .tech-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(255,215,0,0.3);
+            transform: scale(1.05);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,215,0,0.3);
+            transform: scale(1.05);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .motivational-quote {
+            font-style: italic;
+            font-size: 1.8em;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 30px 0;
+        }
+
+        .success-story {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #FFD700;
+        }
+
+        .action-steps {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .step-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            text-align: left;
+            border-left: 5px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .step-item strong {
+            color: #FFD700;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">12</span>
+        </div>
+
+        <!-- Slide 1: Welcome -->
+        <div class="slide active">
+            <h1>🚀 FRONTEND WEB DEVELOPMENT</h1>
+            <h2>Your Gateway to a Limitless Future</h2>
+            <p class="motivational-quote">"The best time to plant a tree was 20 years ago. The second best time is now."</p>
+            <div class="highlight">
+                Welcome to the most exciting journey of your career!
+            </div>
+            <p>Today, we're not just starting a course—we're launching your transformation into a high-demand, well-paid, creative professional.</p>
+        </div>
+
+        <!-- Slide 2: Market Reality -->
+        <div class="slide">
+            <h2>🌐 The Digital Revolution is HERE</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">5.35B</span>
+                    <p>Internet Users Worldwide</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1.13B</span>
+                    <p>Websites Online</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200,000+</span>
+                    <p>New Websites Created Daily</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">73%</span>
+                    <p>Of Companies Prioritize Digital Presence</p>
+                </div>
+            </div>
+            <div class="highlight">
+                Every single business needs a web presence. YOU will build it!
+            </div>
+        </div>
+
+        <!-- Slide 3: Career Opportunities -->
+        <div class="slide">
+            <h2>💼 Endless Career Opportunities</h2>
+            <div class="career-path">
+                <div class="path-item">
+                    <h3>Frontend Developer</h3>
+                    <p>Build user interfaces & experiences</p>
+                </div>
+                <div class="path-item">
+                    <h3>UI/UX Developer</h3>
+                    <p>Design meets functionality</p>
+                </div>
+                <div class="path-item">
+                    <h3>React/Vue Specialist</h3>
+                    <p>Master modern frameworks</p>
+                </div>
+                <div class="path-item">
+                    <h3>Mobile App Developer</h3>
+                    <p>React Native & Progressive Web Apps</p>
+                </div>
+                <div class="path-item">
+                    <h3>Freelance Consultant</h3>
+                    <p>Be your own boss</p>
+                </div>
+                <div class="path-item">
+                    <h3>Tech Entrepreneur</h3>
+                    <p>Build the next big thing</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Salary Potential -->
+        <div class="slide">
+            <h2>💰 Financial Freedom Awaits</h2>
+            <div class="salary-showcase">
+                <h3>Average Frontend Developer Salaries (2024)</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">$85K</span>
+                        <p>Entry Level (0-2 years)</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$105K</span>
+                        <p>Mid Level (3-5 years)</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$135K</span>
+                        <p>Senior Level (5+ years)</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$180K+</span>
+                        <p>Lead/Architect</p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight">
+                Freelancers can earn $50-150/hour. That's $100,000+ annually working part-time!
+            </div>
+        </div>
+
+        <!-- Slide 5: Job Market Stats -->
+        <div class="slide">
+            <h2>📈 Unstoppable Job Growth</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">13%</span>
+                    <p>Job Growth Rate (Much faster than average)</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200K+</span>
+                    <p>Open Positions on LinkedIn</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">95%</span>
+                    <p>Job Satisfaction Rate</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <p>Remote Work Opportunities</p>
+                </div>
+            </div>
+            <p class="motivational-quote">"While others worry about job security, you'll be choosing between multiple offers!"</p>
+        </div>
+
+        <!-- Slide 6: Success Stories -->
+        <div class="slide">
+            <h2>🏆 The Power of Transformation</h2>
+            <div class="success-story">
+                <h3>Alex's Journey: From Barista to Tech Entrepreneur</h3>
+                <p><strong>Before:</strong> Working 60+ hours/week as a barista, $28K/year, dreaming of a better life</p>
+                <p><strong>Month 1:</strong> Built first portfolio website, landed $500 freelance project</p>
+                <p><strong>Month 2:</strong> Created 3 more websites, income reached $3K/month</p>
+                <p><strong>Today:</strong> Running a web development agency, $15K/month, working 30 hours/week</p>
+                <p><em>"My coffee shop experience taught me everything about customer service, managing stress, and delivering under pressure. These skills became my secret weapon in tech. Now I help other small businesses transform their online presence!"</em></p>
+            </div>
+            <div class="highlight">
+                Your current job isn't just a job - it's training for your future success!
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>💡 Key Lesson</h3>
+                    <p>Every experience builds valuable skills</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🚀 Quick Progress</h3>
+                    <p>First client in just 30 days</p>
+                </div>
+                <div class="stat-card">
+                    <h3>💰 Income Growth</h3>
+                    <p>5x salary in 2 months</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⏰ Work-Life Balance</h3>
+                    <p>More money, fewer hours</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Technology Stack -->
+        <div class="slide">
+            <h2>🛠️ Master the Power Tools</h2>
+            <h3>Your Arsenal of Technologies</h3>
+            <div class="tech-stack">
+                <div class="tech-item">HTML5</div>
+                <div class="tech-item">CSS3</div>
+                <div class="tech-item">JavaScript</div>
+                <div class="tech-item">React</div>
+                <div class="tech-item">Vue.js</div>
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Git</div>
+                <div class="tech-item">Sass</div>
+                <div class="tech-item">Webpack</div>
+                <div class="tech-item">TypeScript</div>
+                <div class="tech-item">Responsive Design</div>
+                <div class="tech-item">API Integration</div>
+            </div>
+            <div class="highlight">
+                Each technology you master adds $10K-20K to your market value!
+            </div>
+        </div>
+
+        <!-- Slide 8: Why Frontend Development -->
+        <div class="slide">
+            <h2>🎯 Why Frontend Development?</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🎨 Creative Freedom</h3>
+                    <p>Bring designs to life, create beautiful interfaces</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⚡ Fast Results</h3>
+                    <p>See your code work instantly in the browser</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🌍 Global Impact</h3>
+                    <p>Your work reaches millions of users worldwide</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🔄 Always Evolving</h3>
+                    <p>New tools, frameworks, endless learning</p>
+                </div>
+            </div>
+            <p class="motivational-quote">"Frontend developers are the architects of the digital world!"</p>
+        </div>
+
+        <!-- Slide 9: Life Transformation -->
+        <div class="slide">
+            <h2>🌟 How This Changes Your Life</h2>
+            <div class="highlight">Work from Anywhere, Anytime</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🏝️ Location Independence</h3>
+                    <p>Beach office? Mountain cabin? Your choice!</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⏰ Flexible Schedule</h3>
+                    <p>Peak productivity hours = Your working hours</p>
+                </div>
+                <div class="stat-card">
+                    <h3>💡 Creative Satisfaction</h3>
+                    <p>Build solutions that matter to people</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🚀 Entrepreneurial Path</h3>
+                    <p>Launch your own products and services</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Learning Path -->
+        <div class="slide">
+            <h2>🎓 Your 1-Month Frontend Success Blueprint</h2>
+            <div class="action-steps">
+                <div class="step-item">
+                    <strong>Week 1:</strong> HTML5, CSS3, Responsive Design
+                </div>
+                <div class="step-item">
+                    <strong>Week 2:</strong> JavaScript Fundamentals, DOM Manipulation
+                </div>
+                <div class="step-item">
+                    <strong>Week 3:</strong> Build Your Portfolio Site, Learn Git & GitHub
+                </div>
+                <div class="step-item">
+                    <strong>Week 4:</strong> Freelance Projects, Client Communication
+                </div>
+            </div>
+            <div class="highlight">
+                By week 3, you'll have a stunning portfolio site ready to attract clients!
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🎯 Daily Goals</h3>
+                    <p>4-6 hours of focused learning</p>
+                </div>
+                <div class="stat-card">
+                    <h3>💼 Portfolio Focus</h3>
+                    <p>3-4 impressive projects</p>
+                </div>
+                <div class="stat-card">
+                    <h3>💰 Freelance Ready</h3>
+                    <p>Start with small projects</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🚀 Quick Wins</h3>
+                    <p>Land your first client</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Success Techniques -->
+        <div class="slide">
+            <h2>🔥 Proven Success Techniques</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🏗️ Build Real Projects</h3>
+                    <p>Portfolio over certificates</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🌐 Join Communities</h3>
+                    <p>Network, learn, grow together</p>
+                </div>
+                <div class="stat-card">
+                    <h3>📚 Continuous Learning</h3>
+                    <p>Technology evolves, so do you</p>
+                </div>
+                <div class="stat-card">
+                    <h3>💪 Practice Daily</h3>
+                    <p>1 hour daily = Master in 1 year</p>
+                </div>
+            </div>
+            <p class="motivational-quote">"Success isn't about perfection, it's about persistence!"</p>
+        </div>
+
+        <!-- Slide 12: Call to Action -->
+        <div class="slide">
+            <h1>🎯 YOUR FUTURE STARTS TODAY!</h1>
+            <div class="highlight">
+                The question isn't "Can you do this?"<br>
+                The question is "How fast can you start?"
+            </div>
+            <div class="action-steps">
+                <h3>Your Next Steps:</h3>
+                <div class="step-item">✅ Commit to showing up every day</div>
+                <div class="step-item">✅ Set up your development environment</div>
+                <div class="step-item">✅ Join our class community</div>
+                <div class="step-item">✅ Build your first website this week</div>
+                <div class="step-item">✅ Start your GitHub portfolio</div>
+            </div>
+            <p class="motivational-quote">"A year from now, you'll wish you had started today. So start today!"</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Auto-advance slides (optional - remove if you want manual control)
+        // setInterval(() => changeSlide(1), 30000); // 30 seconds per slide
+    </script>
+</body>
+</html>
